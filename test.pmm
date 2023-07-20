@@ -1,0 +1,6 @@
+
+name.init()
+
+console.writeln('what's your name?')
+
+name.setconrd()
