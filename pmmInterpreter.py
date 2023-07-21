@@ -1,14 +1,17 @@
 from colorama import Fore
 
 def Interpret(tokenizedCode):
-    print(Fore.YELLOW + 'interpreting started')
+    print(Fore.YELLOW + 'interpreting started\n\n')
     
     class console:
+        def __init__(self):
+            self.conColor = Fore.WHITE
+        
         def writeln(self, string):
-            print(string)
+            print(self.conColor + string)
         
         def write(self, string):
-            print(string, end='')
+            print(self.conColor + string, end='')
             
         def read(self):
             return input()
@@ -38,13 +41,13 @@ def Interpret(tokenizedCode):
                     prevclass = ''
                     
             if nextTokenIsUsedwrtln and token[-1] == 'string' and (notThisTime):
-                console.writeln(Fore.WHITE + token[0][1:-1])
+                console.writeln(token[0][1:-1])
                 
                 nextTokenIsUsedwrtln = False
                 
             elif nextTokenIsUsedwrt and token[-1] == 'string' and (notThisTime):
-                console.write(Fore.WHITE + token[0][1:-1])
+                console.write(token[0][1:-1])
                 
                 nextTokenIsUsedwrt = False
         
-    print(Fore.GREEN + '\ninterpreting finished')
+    print(Fore.GREEN + '\n\ninterpreting finished')

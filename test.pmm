@@ -1,4 +1,3 @@
-console.writeln('hello world')
+name.init()
 
-console.write('hello')
-console.write(' world')
+name = 'misho'

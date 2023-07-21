@@ -43,8 +43,9 @@ def lexer(contents):
                 
                 if char == '=':
                     temp_str += '='
+                    tokens.append([temp_str, 'custom class'])
                 
-                if tokenIsClass:
+                elif tokenIsClass:
                     tokens.append([temp_str, 'class'])
                     
                 elif tokens[-1] == '':
