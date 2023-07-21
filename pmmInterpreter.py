@@ -16,7 +16,15 @@ def Interpret(tokenizedCode):
     console = console()
     
     for line in tokenizedCode:
+        prevclass = ''
+        
         for token in line:
-            pass
+            if token[-1] == 'class':
+                prevclass = token[0]
+                
+            if prevclass != '':
+                if prevclass == 'console' and token == ['writeln', 'func']:
+                    console.writeln('lag')
+                
         
     print(Fore.GREEN + 'interpreting finished')
