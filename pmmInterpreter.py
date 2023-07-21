@@ -17,6 +17,9 @@ def Interpret(tokenizedCode):
     
     for line in tokenizedCode:
         prevclass = ''
+        nextTokenIsUsedwrtln = False
+        nextTokenIsUsedwrt = False
+        notThisTime = False
         
         for token in line:
             if token[-1] == 'class':
@@ -24,7 +27,24 @@ def Interpret(tokenizedCode):
                 
             if prevclass != '':
                 if prevclass == 'console' and token == ['writeln', 'func']:
-                    console.writeln('lag')
+                    nextTokenIsUsedwrtln = True
+                    notThisTime = True
+                    
+                    prevclass = ''
+                elif prevclass == 'console' and token == ['write', 'func']:
+                    nextTokenIsUsedwrt = True
+                    notThisTime = True
+                    
+                    prevclass = ''
+                    
+            if nextTokenIsUsedwrtln and token[-1] == 'string' and (notThisTime):
+                console.writeln(Fore.WHITE + token[0][1:-1])
                 
+                nextTokenIsUsedwrtln = False
+                
+            elif nextTokenIsUsedwrt and token[-1] == 'string' and (notThisTime):
+                console.write(Fore.WHITE + token[0][1:-1])
+                
+                nextTokenIsUsedwrt = False
         
-    print(Fore.GREEN + 'interpreting finished')
+    print(Fore.GREEN + '\ninterpreting finished')

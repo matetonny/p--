@@ -1,1 +1,4 @@
-console.writeln('hello')
+console.writeln('hello world')
+
+console.write('hello')
+console.write(' world')

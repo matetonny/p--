@@ -55,7 +55,7 @@ def lexer(contents):
                         tokens.append([temp_str, 'func'])
                     
                 if temp_str != '':
-                    if temp_str[0] == '\'' and temp_str[-2] == '\'':
+                    if temp_str[0] == '\'' and temp_str[-1] == '\'':
                         tokens.append([temp_str, 'string'])
                 
                     elif tokenIsInt:
