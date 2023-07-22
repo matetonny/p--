@@ -13,8 +13,8 @@ def Interpret(tokenizedCode):
         def write(self, string):
             print(self.conColor + string, end='')
             
-        def read(self):
-            return input()
+        def chc(self, color):
+            self.conColor = color
         
     console = console()
     
@@ -40,6 +40,41 @@ def Interpret(tokenizedCode):
                     
                     prevclass = ''
                     
+                elif prevclass == 'console' and token == ['chcred', 'func']:
+                    console.chc(Fore.RED)
+                    
+                    prevclass = ''
+                    
+                elif prevclass == 'console' and token == ['chcrblue', 'func']:
+                    console.chc(Fore.BLUE)
+                    
+                    prevclass = ''
+                
+                elif prevclass == 'console' and token == ['chcyellow', 'func']:
+                    console.chc(Fore.YELLOW)
+                    
+                    prevclass = ''
+                    
+                elif prevclass == 'console' and token == ['chcwhite', 'func']:
+                    console.chc(Fore.WHITE)
+                    
+                    prevclass = ''
+                    
+                elif prevclass == 'console' and token == ['chcblack', 'func']:
+                    console.chc(Fore.BLACK)
+                    
+                    prevclass = ''
+                    
+                elif prevclass == 'console' and token == ['chcgreen', 'func']:
+                    console.chc(Fore.GREEN)
+                    
+                    prevclass = ''
+                
+                elif prevclass == 'console' and token == ['chcomagenta', 'func']:
+                    console.chc(Fore.MAGENTA)
+                    
+                    prevclass = ''
+                    
             if nextTokenIsUsedwrtln and token[-1] == 'string' and (notThisTime):
                 console.writeln(token[0][1:-1])
                 
@@ -49,5 +84,6 @@ def Interpret(tokenizedCode):
                 console.write(token[0][1:-1])
                 
                 nextTokenIsUsedwrt = False
+            
         
     print(Fore.GREEN + '\n\ninterpreting finished')

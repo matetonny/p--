@@ -1,3 +1,5 @@
-name.init()
+console.chcred()
+console.writeln('hello')
 
-name = 'misho'
+console.chcyellow()
+console.writeln('hello v2')
