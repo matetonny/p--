@@ -1,5 +1,0 @@
-console.chcred()
-console.writeln('hello')
-
-console.chcyellow()
-console.writeln('hello v2')
